@@ -13,6 +13,10 @@ import javax.persistence.*;
 @Table(name = "ITEM_TEMPLATE")
 public class ItemTemplate extends BaseEntity {
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "COLLECTION_TEMPLATE_ID")
+    CollectionTemplate collectionTemplate;
+
     @OneToOne(fetch = FetchType.EAGER, orphanRemoval = true, cascade = CascadeType.ALL)
             @JoinColumn(name = "ITEM_ID", referencedColumnName = "ID")
     Item item;

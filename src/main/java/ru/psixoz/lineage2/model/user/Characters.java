@@ -1,7 +1,9 @@
 package ru.psixoz.lineage2.model.user;
 
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.Parent;
 
 import javax.persistence.CascadeType;
@@ -19,6 +21,8 @@ public class Characters {
     final Set<Character> characters = new HashSet<>();
 
     @Parent
+    @Getter
+    @Setter
     Account account;
 
     public Characters(Account account) {

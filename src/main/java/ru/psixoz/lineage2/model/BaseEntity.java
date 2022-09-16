@@ -23,5 +23,5 @@ public abstract class BaseEntity {
     Instant updateOn;
 
     @Version
-    String version;
+    Long version;
 }

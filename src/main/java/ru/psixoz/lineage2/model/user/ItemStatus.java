@@ -4,6 +4,7 @@ package ru.psixoz.lineage2.model.user;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import ru.psixoz.lineage2.model.BaseEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +14,7 @@ import javax.persistence.Table;
 @Entity
 @RequiredArgsConstructor
 @Table(name = "ITEM_STATUS")
-public class ItemStatus {
+public class ItemStatus extends BaseEntity {
 
     @Column(name = "COLLECTION_STATUS_ID")
     final Long collectionStatusId;

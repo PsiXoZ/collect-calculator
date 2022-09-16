@@ -1,6 +1,7 @@
 package ru.psixoz.lineage2.model.template;
 
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Parent;
@@ -20,8 +21,9 @@ public class CollectionItems {
     final Set<ItemTemplate> items = new HashSet<>();
 
 
-
     @Parent
+    @Getter
+    @Setter
     CollectionTemplate collectionTemplate;
 
     public CollectionItems(CollectionTemplate collectionTemplate) {
