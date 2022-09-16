@@ -21,5 +21,5 @@ public class Account extends BaseEntity {
     @Setter
     String fullName;
 
-    final Characters chars = new Characters(this);
+    final Characters characters = new Characters(this);
 }
