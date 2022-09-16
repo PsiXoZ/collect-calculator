@@ -4,18 +4,21 @@ import lombok.Builder;
 import lombok.Value;
 import org.springframework.validation.annotation.Validated;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 @Validated
-public interface ServerEditorService {
+public interface CollectionBonusEditorPort {
 
-    void createServer(CreateServerRequest request);
+    void createBonus(@Valid CreateBonusRequest request);
+
 
     @Value
     @Builder
-    class CreateServerRequest {
+    class CreateBonusRequest {
         @NotNull
-        String code;
-        String serverName;
+        String descriptionCode;
+        @NotNull
+        String enchantCode;
     }
 }

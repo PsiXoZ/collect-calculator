@@ -5,16 +5,24 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
 @Entity
-@Table(name = "ENCHANT_REFERENCE")
+@Table(name = "ENCHANT")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Enchant extends BaseReference {
 
-    public Enchant(String code, String description) {
-        super(code, description);
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "ENCHANT_TYPE_CODE", referencedColumnName = "CODE")
+    EnchantType type;
+
+    public Enchant(String code, String value, EnchantType type) {
+        super(code, value);
+        this.type = type;
+    }
+
+    public String getValue() {
+        return description;
     }
 }

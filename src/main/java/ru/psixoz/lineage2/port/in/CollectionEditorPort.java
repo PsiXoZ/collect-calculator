@@ -6,13 +6,12 @@ import org.springframework.validation.annotation.Validated;
 import ru.psixoz.lineage2.model.ref.CollectionType;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Collection;
 
 @Validated
-public interface CollectionEditorService {
+public interface CollectionEditorPort {
 
     CreateCollectionResponse createCollection(@Valid CreateCollectionRequest request);
 
@@ -30,7 +29,7 @@ public interface CollectionEditorService {
         @NotNull
         CollectionType collectionType;
         @NotNull
-        String description;
+        Long collectionBonusId;
         @NotEmpty
         Collection<ItemProjection> items;
 

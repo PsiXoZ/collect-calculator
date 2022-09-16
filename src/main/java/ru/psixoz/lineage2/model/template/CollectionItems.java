@@ -8,10 +8,7 @@ import org.hibernate.annotations.Parent;
 import ru.psixoz.lineage2.model.ref.Enchant;
 import ru.psixoz.lineage2.model.ref.ItemType;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Embeddable;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -22,7 +19,8 @@ import static java.lang.String.format;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class CollectionItems {
 
-    @OneToMany(mappedBy = "collectionTemplate", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "collections", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @Getter
     final Set<ItemTemplate> items = new HashSet<>();
 
 
@@ -55,12 +53,12 @@ public class CollectionItems {
                     itemTemplate.getEnchant().getDescription(),
                     itemTemplate.getType().getDescription()));
         }
-        itemTemplate.setCollectionTemplate(collectionTemplate);
+        itemTemplate.getCollections().add(collectionTemplate);
         items.add(itemTemplate);
     }
 
     private boolean isItemExist(ItemTemplate itemTemplate) {
-        return items.stream().anyMatch(item -> (
+         return items.stream().anyMatch(item -> (
                 isItemNameEquals(itemTemplate, item) &&
                         isEnchantCodeEquals(itemTemplate, item) &&
                         isTypeCodeEquals(itemTemplate, item)));

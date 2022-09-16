@@ -2,7 +2,7 @@ package ru.psixoz.lineage2.usecase.ref;
 
 import lombok.RequiredArgsConstructor;
 import ru.psixoz.lineage2.model.ref.ItemType;
-import ru.psixoz.lineage2.port.in.ItemTypeEditorService;
+import ru.psixoz.lineage2.port.in.ItemTypeEditorPort;
 import ru.psixoz.lineage2.port.out.ref.ItemTypeRepository;
 import ru.psixoz.lineage2.usecase.common.CommandUseCase;
 
@@ -12,7 +12,7 @@ import static java.lang.String.format;
 
 @CommandUseCase
 @RequiredArgsConstructor
-public class ItemTypeEditorUseCase implements ItemTypeEditorService {
+public class ItemTypeEditorUseCase implements ItemTypeEditorPort {
     final ItemTypeRepository itemTypeRepository;
     @Override
     public void createItemType(CreateItemTypeRequest request) {

@@ -5,9 +5,10 @@ import lombok.Value;
 import org.springframework.validation.annotation.Validated;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 @Validated
-public interface ItemEditorService {
+public interface ItemEditorPort {
 
     CreateItemResponse createItem(@Valid CreateItemRequest request);
 
@@ -20,6 +21,7 @@ public interface ItemEditorService {
     @Value
     @Builder
     class CreateItemRequest {
+        @NotNull
         String name;
     }
 }

@@ -8,7 +8,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 @Validated
-public interface AccountService {
+public interface AccountEditorPort {
     CreateAccountResponse createAccount(@Valid CreateAccountRequest request);
 
     @Value

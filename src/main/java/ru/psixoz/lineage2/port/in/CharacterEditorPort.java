@@ -8,7 +8,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 @Validated
-public interface CharacterService {
+public interface CharacterEditorPort {
 
     CreateCharacterResponse createCharacter(@Valid CreateCharacterRequest request);
 

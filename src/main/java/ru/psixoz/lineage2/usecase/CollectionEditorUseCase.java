@@ -2,8 +2,9 @@ package ru.psixoz.lineage2.usecase;
 
 import lombok.RequiredArgsConstructor;
 import ru.psixoz.lineage2.model.template.CollectionTemplate;
-import ru.psixoz.lineage2.port.in.CollectionEditorService;
+import ru.psixoz.lineage2.port.in.CollectionEditorPort;
 import ru.psixoz.lineage2.port.out.ref.CollectionRepository;
+import ru.psixoz.lineage2.service.CollectionBonusService;
 import ru.psixoz.lineage2.service.CollectionItemsService;
 import ru.psixoz.lineage2.usecase.common.CommandUseCase;
 
@@ -13,9 +14,10 @@ import static java.lang.String.format;
 
 @CommandUseCase
 @RequiredArgsConstructor
-public class CollectionEditorUseCase implements CollectionEditorService {
+public class CollectionEditorUseCase implements CollectionEditorPort {
     final CollectionRepository collectionRepository;
     final CollectionItemsService collectionItemsService;
+    final CollectionBonusService bonusService;
 
     @Override
     public CreateCollectionResponse createCollection(CreateCollectionRequest request) {
@@ -27,10 +29,9 @@ public class CollectionEditorUseCase implements CollectionEditorService {
 
         CollectionTemplate template = new CollectionTemplate();
         template.setName(request.getName());
-        template.setDescription(request.getDescription());
         template.setCollectionType(request.getCollectionType());
+        bonusService.addCollectionBonus(template, request.getCollectionBonusId());
         collectionItemsService.addCollectionItems(template.getItemsCollection(), request.getItems());
-
         collectionRepository.save(template);
 
         return CreateCollectionResponse.builder()
