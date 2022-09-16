@@ -13,7 +13,7 @@ import static ru.psixoz.lineage2.port.in.AccountService.CreateAccountRequest;
 public class AccountController {
     final AccountService accountService;
 
-    @PostMapping(name = "/createAccount")
+    @PostMapping("/createAccount")
     public CreateAccountResponse createAccount(@RequestBody CreateAccountRequest request) {
         return accountService.createAccount(request);
     }

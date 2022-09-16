@@ -4,18 +4,22 @@ import lombok.Builder;
 import lombok.Value;
 import org.springframework.validation.annotation.Validated;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 @Validated
-public interface L2ServerService {
+public interface ItemTypeEditorService {
 
-    void createServer(CreateServerRequest request);
+    void createItemType(@Valid CreateItemTypeRequest request);
 
     @Value
     @Builder
-    class CreateServerRequest {
+    class CreateItemTypeRequest {
         @NotNull
         String code;
-        String serverName;
+        @NotNull
+        String description;
+
     }
+
 }

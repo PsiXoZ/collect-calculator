@@ -10,13 +10,12 @@ import javax.persistence.Table;
 
 @Getter
 @Entity
-@Table(name = "L2_SERVER")
+@Table(name = "SERVER_REFERENCE")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class LineageServer extends BaseReference {
 
     public LineageServer(String code, String name) {
-        this.code = code;
-        this.description = name;
+        super(code, name);
     }
 
 }

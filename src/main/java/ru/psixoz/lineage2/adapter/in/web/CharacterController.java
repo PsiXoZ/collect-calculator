@@ -13,7 +13,7 @@ import static ru.psixoz.lineage2.port.in.CharacterService.*;
 public class CharacterController {
     final CharacterService characterService;
 
-    @PostMapping(name = "/addCharacter")
+    @PostMapping("/addCharacter")
     public CreateCharacterResponse addCharacter(@RequestBody CreateCharacterRequest request) {
         return characterService.createCharacter(request);
     }
