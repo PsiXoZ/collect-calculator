@@ -3,7 +3,7 @@ package ru.psixoz.lineage2.usecase.ref;
 import lombok.RequiredArgsConstructor;
 import ru.psixoz.lineage2.model.ref.Enchant;
 import ru.psixoz.lineage2.model.ref.EnchantType;
-import ru.psixoz.lineage2.port.in.EnchantEditorPort;
+import ru.psixoz.lineage2.port.in.ref.EnchantEditorPort;
 import ru.psixoz.lineage2.port.out.ref.EnchantRepository;
 import ru.psixoz.lineage2.port.out.ref.EnchantTypeRepository;
 import ru.psixoz.lineage2.usecase.common.CommandUseCase;

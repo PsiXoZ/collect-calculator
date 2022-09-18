@@ -1,4 +1,4 @@
-package ru.psixoz.lineage2.port.in;
+package ru.psixoz.lineage2.port.in.ref;
 
 import lombok.Builder;
 import lombok.Value;

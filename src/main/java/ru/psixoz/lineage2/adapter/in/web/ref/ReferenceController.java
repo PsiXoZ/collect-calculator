@@ -5,19 +5,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import ru.psixoz.lineage2.adapter.in.web.RestAdapter;
-import ru.psixoz.lineage2.port.in.*;
+import ru.psixoz.lineage2.port.in.ref.*;
 
-import static ru.psixoz.lineage2.port.in.BonusDescriptionEditorPort.*;
-import static ru.psixoz.lineage2.port.in.CollectionBonusEditorPort.*;
-import static ru.psixoz.lineage2.port.in.CollectionEditorPort.CreateCollectionRequest;
-import static ru.psixoz.lineage2.port.in.CollectionEditorPort.CreateCollectionResponse;
-import static ru.psixoz.lineage2.port.in.CollectionViewerPort.*;
-import static ru.psixoz.lineage2.port.in.EnchantEditorPort.CreateEnchantRequest;
-import static ru.psixoz.lineage2.port.in.EnchantTypeEditorPort.*;
-import static ru.psixoz.lineage2.port.in.ItemEditorPort.*;
-import static ru.psixoz.lineage2.port.in.ItemEditorPort.CreateItemRequest;
-import static ru.psixoz.lineage2.port.in.ItemTypeEditorPort.CreateItemTypeRequest;
-import static ru.psixoz.lineage2.port.in.ServerEditorPort.CreateServerRequest;
+import static ru.psixoz.lineage2.port.in.ref.BonusDescriptionEditorPort.*;
+import static ru.psixoz.lineage2.port.in.ref.CollectionBonusEditorPort.*;
+import static ru.psixoz.lineage2.port.in.ref.CollectionEditorPort.CreateCollectionRequest;
+import static ru.psixoz.lineage2.port.in.ref.CollectionEditorPort.CreateCollectionResponse;
+import static ru.psixoz.lineage2.port.in.ref.CollectionViewerPort.*;
+import static ru.psixoz.lineage2.port.in.ref.EnchantEditorPort.CreateEnchantRequest;
+import static ru.psixoz.lineage2.port.in.ref.EnchantTypeEditorPort.*;
+import static ru.psixoz.lineage2.port.in.ref.ItemEditorPort.*;
+import static ru.psixoz.lineage2.port.in.ref.ItemEditorPort.CreateItemRequest;
+import static ru.psixoz.lineage2.port.in.ref.ItemTypeEditorPort.CreateItemTypeRequest;
+import static ru.psixoz.lineage2.port.in.ref.ServerEditorPort.CreateServerRequest;
 
 @RestAdapter(path = "/api/reference")
 @RequiredArgsConstructor

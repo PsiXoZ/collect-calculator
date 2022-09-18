@@ -1,10 +1,10 @@
-package ru.psixoz.lineage2.usecase;
+package ru.psixoz.lineage2.usecase.ref;
 
 import lombok.RequiredArgsConstructor;
 import ru.psixoz.lineage2.model.ref.BonusDescription;
 import ru.psixoz.lineage2.model.ref.Enchant;
 import ru.psixoz.lineage2.model.template.CollectionBonus;
-import ru.psixoz.lineage2.port.in.CollectionBonusEditorPort;
+import ru.psixoz.lineage2.port.in.ref.CollectionBonusEditorPort;
 import ru.psixoz.lineage2.port.out.ref.BonusDescriptionRepository;
 import ru.psixoz.lineage2.port.out.ref.CollectionBonusRepository;
 import ru.psixoz.lineage2.port.out.ref.EnchantRepository;

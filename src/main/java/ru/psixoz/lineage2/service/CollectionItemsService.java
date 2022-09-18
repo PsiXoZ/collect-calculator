@@ -14,7 +14,7 @@ import ru.psixoz.lineage2.port.out.ref.ItemTypeRepository;
 import java.util.Collection;
 
 import static java.lang.String.format;
-import static ru.psixoz.lineage2.port.in.CollectionEditorPort.*;
+import static ru.psixoz.lineage2.port.in.ref.CollectionEditorPort.*;
 
 @Service
 @RequiredArgsConstructor

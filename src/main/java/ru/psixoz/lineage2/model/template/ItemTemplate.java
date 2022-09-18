@@ -6,7 +6,6 @@ import lombok.Setter;
 import ru.psixoz.lineage2.model.BaseEntity;
 import ru.psixoz.lineage2.model.ref.Enchant;
 import ru.psixoz.lineage2.model.ref.ItemType;
-import ru.psixoz.lineage2.model.template.Item;
 
 import javax.persistence.*;
 import java.util.HashSet;

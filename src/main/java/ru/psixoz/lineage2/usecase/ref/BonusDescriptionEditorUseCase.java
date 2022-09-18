@@ -2,7 +2,7 @@ package ru.psixoz.lineage2.usecase.ref;
 
 import lombok.RequiredArgsConstructor;
 import ru.psixoz.lineage2.model.ref.BonusDescription;
-import ru.psixoz.lineage2.port.in.BonusDescriptionEditorPort;
+import ru.psixoz.lineage2.port.in.ref.BonusDescriptionEditorPort;
 import ru.psixoz.lineage2.port.out.ref.BonusDescriptionRepository;
 import ru.psixoz.lineage2.usecase.common.CommandUseCase;
 

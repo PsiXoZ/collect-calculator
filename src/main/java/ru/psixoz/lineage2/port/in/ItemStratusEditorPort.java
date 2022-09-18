@@ -8,17 +8,18 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 @Validated
-public interface CollectionBonusEditorPort {
+public interface ItemStratusEditorPort {
 
-    void createBonus(@Valid CreateBonusRequest request);
-
+    void markComplete(@Valid MarkCompleteItemStatusRequest request);
 
     @Value
     @Builder
-    class CreateBonusRequest {
+    class MarkCompleteItemStatusRequest {
         @NotNull
-        String descriptionCode;
+        Long characterId;
         @NotNull
-        String enchantCode;
+        Long collectionTemplateId;
+        @NotNull
+        Long itemTemplateId;
     }
 }

@@ -1,4 +1,4 @@
-package ru.psixoz.lineage2.port.in;
+package ru.psixoz.lineage2.port.in.ref;
 
 import lombok.Builder;
 import lombok.Value;
@@ -8,16 +8,16 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 @Validated
-public interface ServerEditorPort {
+public interface EnchantTypeEditorPort {
 
-    void createServer(@Valid CreateServerRequest request);
+    void createEnchantedType(@Valid CreateEnchantTypeRequest request);
 
     @Value
     @Builder
-    class CreateServerRequest {
+    class CreateEnchantTypeRequest {
         @NotNull
         String code;
         @NotNull
-        String serverName;
+        String description;
     }
 }

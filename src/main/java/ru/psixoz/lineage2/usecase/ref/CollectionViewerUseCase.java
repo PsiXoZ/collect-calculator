@@ -1,8 +1,8 @@
-package ru.psixoz.lineage2.usecase;
+package ru.psixoz.lineage2.usecase.ref;
 
 import lombok.RequiredArgsConstructor;
 import ru.psixoz.lineage2.model.template.CollectionTemplate;
-import ru.psixoz.lineage2.port.in.CollectionViewerPort;
+import ru.psixoz.lineage2.port.in.ref.CollectionViewerPort;
 import ru.psixoz.lineage2.port.out.ref.CollectionRepository;
 import ru.psixoz.lineage2.usecase.common.QueryUseCase;
 

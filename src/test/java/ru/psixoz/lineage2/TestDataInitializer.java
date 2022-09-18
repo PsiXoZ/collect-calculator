@@ -8,6 +8,9 @@ import ru.psixoz.lineage2.model.template.CollectionBonus;
 import ru.psixoz.lineage2.model.template.CollectionTemplate;
 import ru.psixoz.lineage2.model.template.Item;
 import ru.psixoz.lineage2.model.template.ItemTemplate;
+import ru.psixoz.lineage2.model.user.Account;
+import ru.psixoz.lineage2.model.user.Character;
+import ru.psixoz.lineage2.port.out.AccountRepository;
 import ru.psixoz.lineage2.port.out.ref.CollectionRepository;
 import ru.psixoz.lineage2.usecase.common.CommandUseCase;
 
@@ -17,10 +20,19 @@ import static java.util.Arrays.asList;
 @RequiredArgsConstructor
 public class TestDataInitializer implements ApplicationRunner {
     final CollectionRepository collectionRepository;
+    final AccountRepository accountRepository;
 
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+        //Create Character
+        LineageServer server = new LineageServer("GrandKain", "Гранд Каин");
+        Account account = new Account();
+        account.setFullName("Petrov Roman");
+        account.setLogin("psixoz");
+        account.getCharacters().addCharacter("PaulVanDayk", server);
+        accountRepository.save(account);
+
         //Create enchantType
         EnchantType bonusEnchantType = new EnchantType("BONUS_ENCHANT", "Бонус от коллекции");
         EnchantType equipmentEnchantType = new EnchantType("EQUIPMENT_ENCHANT", "Заточка обмундирования");

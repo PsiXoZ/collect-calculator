@@ -10,17 +10,18 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Getter
+@Setter
 @Entity
 @Table(name = "COLLECTION_STATUS")
-@RequiredArgsConstructor
 public class CollectionStatus extends BaseEntity {
 
     @Column(name = "CHARACTER_ID")
-    final Long characterId;
+    Long characterId;
 
     @Column(name = "COLLECTION_TEMPLATE_ID")
-    final Long collectionTemplateId;
+    Long collectionTemplateId;
 
-    @Setter
     boolean complete;
+
+
 }

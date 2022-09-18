@@ -2,7 +2,7 @@ package ru.psixoz.lineage2.usecase.ref;
 
 import lombok.RequiredArgsConstructor;
 import ru.psixoz.lineage2.model.ref.LineageServer;
-import ru.psixoz.lineage2.port.in.ServerEditorPort;
+import ru.psixoz.lineage2.port.in.ref.ServerEditorPort;
 import ru.psixoz.lineage2.port.out.ref.ServerRepository;
 import ru.psixoz.lineage2.usecase.common.CommandUseCase;
 
