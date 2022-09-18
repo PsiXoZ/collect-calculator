@@ -48,7 +48,6 @@ public class CharacterViewerUseCase implements CharacterViewerPort {
     }
 
     private String buildItemName(GetCharacterCollectionDto item) {
-        //TODO: Подумать как правильно собирать имя
         if (EQUIPMENT.equals(item.getItemEnchantType())) {
             if ("0".equals(item.getItemEnchant())) {
                 return item.getItemName();
