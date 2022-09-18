@@ -46,7 +46,7 @@ public class ItemStatusEditorUseCase implements ItemStratusEditorPort {
         CollectionTemplate collectionTemplate = collectionRepository.findByIdOrThrow(request.getCollectionTemplateId());
         Set<ItemTemplate> items = collectionTemplate.getItemsCollection().getItems();
         if(items.stream().noneMatch(item -> item.getId().equals(request.getItemTemplateId()))) {
-            throw new RuntimeException(format("Item with item template id: %s doesn't exist in collection: %s", request.getItemTemplateId(), collectionStatus.getId()));
+            throw new RuntimeException(format("Item with item template id: %s doesn't exist in collection: %s", request.getItemTemplateId(), collectionTemplate.getId()));
         }
 
         ItemStatus itemStatus = new ItemStatus();
