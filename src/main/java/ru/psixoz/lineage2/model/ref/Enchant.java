@@ -13,8 +13,8 @@ import javax.persistence.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Enchant extends BaseReference {
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "ENCHANT_TYPE_CODE", referencedColumnName = "CODE")
+    @Column(name = "ENCHANT_TYPE")
+    @Enumerated(EnumType.STRING)
     EnchantType type;
 
     public Enchant(String code, String value, EnchantType type) {

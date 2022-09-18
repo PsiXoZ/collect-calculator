@@ -18,7 +18,7 @@ public interface CharacterAdapter extends CharacterRepository, JpaRepository<Cha
             "       it.ID AS \"ITEMID\",\n" +
             "       i.NAME || ' - ' || itp.DESCRIPTION AS \"ITEMNAME\",\n" +
             "       e1.DESCRIPTION AS \"ITEMENCHANT\",\n" +
-            "       e1.ENCHANT_TYPE_CODE AS \"ITEMENCHANTTYPE\",\n" +
+            "       e1.ENCHANT_TYPE AS \"ITEMENCHANTTYPE\",\n" +
             "       COALESCE(cs.COMPLETE, '0') AS \"COLLECTIONCOMPLETE\",\n" +
             "       COALESCE(its.COMPLETE, '0') AS \"ITEMCOMPLETE\"\n" +
             "FROM COLLECTION_TEMPLATE ct\n" +

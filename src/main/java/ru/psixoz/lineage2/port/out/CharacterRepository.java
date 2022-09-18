@@ -1,6 +1,7 @@
 package ru.psixoz.lineage2.port.out;
 
 import ru.psixoz.lineage2.model.ref.CollectionType;
+import ru.psixoz.lineage2.model.ref.EnchantType;
 import ru.psixoz.lineage2.model.user.Character;
 
 import java.util.Collection;
@@ -21,7 +22,7 @@ public interface CharacterRepository {
         Long getItemId();
         String getItemName();
         String getItemEnchant();
-        String getItemEnchantType();
+        EnchantType getItemEnchantType();
         boolean isCollectionComplete();
         boolean isItemComplete();
     }}

@@ -34,8 +34,8 @@ public class TestDataInitializer implements ApplicationRunner {
         accountRepository.save(account);
 
         //Create enchantType
-        EnchantType bonusEnchantType = new EnchantType("BONUS_ENCHANT", "Бонус от коллекции");
-        EnchantType equipmentEnchantType = new EnchantType("EQUIPMENT_ENCHANT", "Заточка обмундирования");
+        EnchantType bonusEnchantType = EnchantType.BONUS;
+        EnchantType equipmentEnchantType = EnchantType.EQUIPMENT;
         //Create enchant
         Enchant bonusReduceDamageMinusOneEnchant = new Enchant("DAMAGE_MINUS_1", "-1%", bonusEnchantType);
         Enchant bonusReduceDamageMinusFiveEnchant = new Enchant("DAMAGE_MINUS_5", "-5%", bonusEnchantType);

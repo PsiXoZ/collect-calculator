@@ -7,15 +7,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import ru.psixoz.lineage2.adapter.in.web.RestAdapter;
 import ru.psixoz.lineage2.port.in.ref.*;
 
-import static ru.psixoz.lineage2.port.in.ref.BonusDescriptionEditorPort.*;
-import static ru.psixoz.lineage2.port.in.ref.CollectionBonusEditorPort.*;
+import static ru.psixoz.lineage2.port.in.ref.BonusDescriptionEditorPort.CreateBonusDescriptionRequest;
+import static ru.psixoz.lineage2.port.in.ref.CollectionBonusEditorPort.CreateBonusRequest;
 import static ru.psixoz.lineage2.port.in.ref.CollectionEditorPort.CreateCollectionRequest;
 import static ru.psixoz.lineage2.port.in.ref.CollectionEditorPort.CreateCollectionResponse;
-import static ru.psixoz.lineage2.port.in.ref.CollectionViewerPort.*;
+import static ru.psixoz.lineage2.port.in.ref.CollectionViewerPort.GetAllCollectionsResponse;
 import static ru.psixoz.lineage2.port.in.ref.EnchantEditorPort.CreateEnchantRequest;
-import static ru.psixoz.lineage2.port.in.ref.EnchantTypeEditorPort.*;
-import static ru.psixoz.lineage2.port.in.ref.ItemEditorPort.*;
 import static ru.psixoz.lineage2.port.in.ref.ItemEditorPort.CreateItemRequest;
+import static ru.psixoz.lineage2.port.in.ref.ItemEditorPort.CreateItemResponse;
 import static ru.psixoz.lineage2.port.in.ref.ItemTypeEditorPort.CreateItemTypeRequest;
 import static ru.psixoz.lineage2.port.in.ref.ServerEditorPort.CreateServerRequest;
 
@@ -26,7 +25,6 @@ public class ReferenceController {
     final ItemEditorPort itemEditorPort;
     final ItemTypeEditorPort itemTypeEditorPort;
     final EnchantEditorPort enchantEditorPort;
-    final EnchantTypeEditorPort enchantTypeEditorPort;
     final CollectionEditorPort collectionEditorPort;
     final CollectionViewerPort collectionViewerPort;
     final CollectionBonusEditorPort collectionBonusEditorPort;
@@ -39,11 +37,6 @@ public class ReferenceController {
     @PostMapping("/enchant/create")
     public void createEnchant(@RequestBody CreateEnchantRequest request) {
         enchantEditorPort.createEnchant(request);
-    }
-
-    @PostMapping("/enchant/createType")
-    public void createEnchantType(@RequestBody CreateEnchantTypeRequest request) {
-        enchantTypeEditorPort.createEnchantedType(request);
     }
     @PostMapping("/item/createItemType")
     public void createItemType(@RequestBody CreateItemTypeRequest request) {
