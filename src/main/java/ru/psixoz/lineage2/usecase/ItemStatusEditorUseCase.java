@@ -42,6 +42,13 @@ public class ItemStatusEditorUseCase implements ItemStratusEditorPort {
             throw new RuntimeException(format("Item status with collectionStatusId: %s and ItemTemplate: %s already exist", collectionStatus.getId(), request.getItemTemplateId()));
         }
 
+        //Check item exist in current collection
+        CollectionTemplate collectionTemplate = collectionRepository.findByIdOrThrow(request.getCollectionTemplateId());
+        Set<ItemTemplate> items = collectionTemplate.getItemsCollection().getItems();
+        if(items.stream().noneMatch(item -> item.getId().equals(request.getItemTemplateId()))) {
+            throw new RuntimeException(format("Item with item template id: %s doesn't exist in collection: %s", request.getItemTemplateId(), collectionStatus.getId()));
+        }
+
         ItemStatus itemStatus = new ItemStatus();
         itemStatus.setCollectionStatusId(collectionStatus.getId());
         itemStatus.setItemTemplateId(request.getItemTemplateId());
@@ -49,9 +56,7 @@ public class ItemStatusEditorUseCase implements ItemStratusEditorPort {
         itemStatusRepository.save(itemStatus);
 
         //Check all items complete, then complete collection
-        CollectionTemplate collectionTemplate = collectionRepository.findByIdOrThrow(request.getCollectionTemplateId());
         Collection<ItemStatus> completeItemStatuses = itemStatusRepository.findByCollectionStatusIdAndComplete(collectionStatus.getId(), true);
-        Set<ItemTemplate> items = collectionTemplate.getItemsCollection().getItems();
 
         if (items.size() == completeItemStatuses.size()) {
             collectionStatus.setComplete(true);
