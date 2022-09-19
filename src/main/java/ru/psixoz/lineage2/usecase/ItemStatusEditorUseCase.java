@@ -39,7 +39,7 @@ public class ItemStatusEditorUseCase implements ItemStratusEditorPort {
 
         Optional<ItemStatus> itemStatusOp = itemStatusRepository.findByCollectionStatusIdAndItemTemplateId(collectionStatus.getId(), request.getItemTemplateId());
         if (itemStatusOp.isPresent()) {
-            throw new RuntimeException(format("Item status with collectionStatusId: %s and ItemTemplate: %s already exist", collectionStatus.getId(), request.getItemTemplateId()));
+            throw new RuntimeException(format("Item status with collectionStatusId: %s and ItemTemplate: %s for characterId: %d already exist", collectionStatus.getId(), request.getItemTemplateId(), request.getCharacterId()));
         }
 
         //Check item exist in current collection
