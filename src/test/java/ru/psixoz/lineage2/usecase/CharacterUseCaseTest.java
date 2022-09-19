@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import ru.psixoz.lineage2.AbstractSpringBootTest;
 import ru.psixoz.lineage2.model.ref.LineageServer;
+import ru.psixoz.lineage2.model.ref.LineageServerType;
 import ru.psixoz.lineage2.model.user.Account;
 import ru.psixoz.lineage2.port.in.CharacterEditorPort;
 
@@ -18,7 +19,7 @@ public class CharacterUseCaseTest extends AbstractSpringBootTest {
     @Test
     void test_create_character() {
         Account account = createAccount();
-        LineageServer server = createServer("Bartz", "TestServer");
+        LineageServer server = createServer("Bartz", "TestServer", LineageServerType.LEGACY);
         flushAndClearSession();
 
         CreateCharacterResponse testCharacter = characterEditorPort.createCharacter(CreateCharacterRequest.builder()
@@ -34,7 +35,7 @@ public class CharacterUseCaseTest extends AbstractSpringBootTest {
     @Test
     void test_character_exist() {
         Account account = createAccount();
-        LineageServer server = createServer("Bartz", "TestServer");
+        LineageServer server = createServer("Bartz", "TestServer", LineageServerType.LEGACY);
         createCharacter(account, "test", server);
         flushAndClearSession();
 

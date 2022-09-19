@@ -19,12 +19,23 @@ import static java.lang.String.format;
 public class CharacterEditorUseCase implements CharacterEditorPort {
     final AccountRepository accountRepository;
     final ServerRepository serverRepository;
+    final CharacterRepository characterRepository;
 
 
     @Override
     public CreateCharacterResponse createCharacter(CreateCharacterRequest request) {
         Account account = accountRepository.findByIdOrThrow(request.getAccountId());
         LineageServer lineageServer = serverRepository.findByCodeOrThrow(request.getServerCode());
+
+        Optional<Character> characterOp = characterRepository.findByNameIgnoreCaseAndServer(request.getName(), request.getServerCode());
+        if (characterOp.isPresent()) {
+            Character character = characterOp.get();
+            if (character.getAccount().getId().equals(account.getId()) && character.getServer().getServerType().equals(request.getServerType())) {
+                throw new RuntimeException(format("Character with name: %s and sever: %s with type: %s already created in another account", request.getName(), lineageServer.getDescription(), request.getServerType()));
+            }
+
+        }
+
         account.getCharacters().addCharacter(request.getName(), lineageServer);
         accountRepository.save(account);
         return CreateCharacterResponse.builder()

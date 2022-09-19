@@ -1,5 +1,6 @@
 package ru.psixoz.lineage2.port.out.ref;
 
+import ru.psixoz.lineage2.model.ref.LineageServerType;
 import ru.psixoz.lineage2.model.template.CollectionTemplate;
 
 import java.util.Collection;
@@ -12,6 +13,8 @@ public interface CollectionRepository {
     CollectionTemplate save(CollectionTemplate collection);
 
     Optional<CollectionTemplate> findByNameIgnoreCase(String name);
+    Optional<CollectionTemplate> findByNameIgnoreCaseAndServerType(String name, LineageServerType serverType);
+
 
     Optional<CollectionTemplate> findById(Long id);
 

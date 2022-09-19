@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import ru.psixoz.lineage2.model.BaseEntity;
 import ru.psixoz.lineage2.model.ref.CollectionType;
+import ru.psixoz.lineage2.model.ref.LineageServerType;
 
 import javax.persistence.*;
 
@@ -27,6 +28,11 @@ public class CollectionTemplate extends BaseEntity {
     @JoinColumn(name = "COLLECTION_BONUS_ID", referencedColumnName = "ID")
     @Setter
     CollectionBonus collectionBonus;
+
+    @Column(name = "LINEAGE_SERVER_TYPE")
+    @Enumerated(EnumType.STRING)
+    @Setter
+    LineageServerType serverType;
 
 
     final CollectionItems itemsCollection = new CollectionItems(this);

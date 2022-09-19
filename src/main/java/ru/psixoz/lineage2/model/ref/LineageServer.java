@@ -5,8 +5,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
 @Entity
@@ -14,8 +13,13 @@ import javax.persistence.Table;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class LineageServer extends BaseReference {
 
-    public LineageServer(String code, String name) {
+    @Column(name = "LINEAGE_SERVER_TYPE")
+    @Enumerated(EnumType.STRING)
+    LineageServerType serverType;
+
+    public LineageServer(String code, String name, LineageServerType serverType) {
         super(code, name);
+        this.serverType = serverType;
     }
 
 }

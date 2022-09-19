@@ -35,10 +35,10 @@ public class Characters {
 
     public void addCharacter(String name, LineageServer server) {
         boolean exist = characters.stream()
-                .anyMatch(character -> (character.getName().equalsIgnoreCase(name) && character.getServer().getCode().equals(server.getCode())));
+                .anyMatch(character -> (character.getName().equalsIgnoreCase(name) && character.getServer().getCode().equals(server.getCode()) && character.getServer().getServerType().equals(server.getServerType())));
 
         if (exist) {
-            throw new IllegalArgumentException(format("Character with name: %s already exist on server: %s", name, server.getDescription()));
+            throw new IllegalArgumentException(format("Character with name: %s already exist on server: %s and serverType: %s", name, server.getDescription(), server.getServerType()));
         }
 
         Character character = new Character(account, name, server);

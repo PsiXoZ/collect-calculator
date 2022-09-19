@@ -22,7 +22,7 @@ public class ServerEditorUseCase implements ServerEditorPort {
             LineageServer server = lineageServerOp.get();
             throw new IllegalArgumentException(format("Server with code: %s already exist, Existing name: %s, current name: %s ", request.getCode(), server.getDescription(), request.getServerName()));
         }
-        serverRepository.save(new LineageServer(request.getCode(), request.getServerName()));
+        serverRepository.save(new LineageServer(request.getCode(), request.getServerName(), request.getServerType()));
 
     }
 }

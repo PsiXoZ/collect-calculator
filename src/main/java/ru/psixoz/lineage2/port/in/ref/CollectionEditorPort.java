@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Value;
 import org.springframework.validation.annotation.Validated;
 import ru.psixoz.lineage2.model.ref.CollectionType;
+import ru.psixoz.lineage2.model.ref.LineageServerType;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
@@ -30,6 +31,7 @@ public interface CollectionEditorPort {
         CollectionType collectionType;
         @NotNull
         Long collectionBonusId;
+        @NotNull LineageServerType serverType;
         @NotEmpty
         Collection<ItemProjection> items;
 

@@ -26,11 +26,13 @@ public class TestDataInitializer implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         //Create Character
-        LineageServer server = new LineageServer("GrandKain", "Гранд Каин");
+        LineageServer server = new LineageServer("GrandKain", "Гранд Каин", LineageServerType.LEGACY);
         Account account = new Account();
         account.setFullName("Test User");
         account.setLogin("User");
         account.getCharacters().addCharacter("TestCharacter", server);
+        account.getCharacters().addCharacter("TestCharacter2", server);
+
         accountRepository.save(account);
 
         //Create enchantType
@@ -63,6 +65,7 @@ public class TestDataInitializer implements ApplicationRunner {
         CollectionTemplate collectionTemplate = new CollectionTemplate();
         collectionTemplate.setCollectionType(CollectionType.WARRIOR);
         collectionTemplate.setName("Коллекция новичка");
+        collectionTemplate.setServerType(LineageServerType.LEGACY);
 
         CollectionBonus bonus = new CollectionBonus();
         bonus.setEnchant(bonusReduceDamageMinusOneEnchant);
@@ -91,6 +94,8 @@ public class TestDataInitializer implements ApplicationRunner {
         CollectionTemplate collectionTemplate1 = new CollectionTemplate();
         collectionTemplate1.setCollectionType(CollectionType.WARRIOR);
         collectionTemplate1.setName("Коллекция опытного воина");
+        collectionTemplate1.setServerType(LineageServerType.LEGACY);
+
 
         CollectionBonus bonus1 = new CollectionBonus();
         bonus1.setEnchant(bonusReduceDamageMinusFiveEnchant);
@@ -120,6 +125,8 @@ public class TestDataInitializer implements ApplicationRunner {
         CollectionTemplate collectionTemplate2 = new CollectionTemplate();
         collectionTemplate2.setCollectionType(CollectionType.COMMON);
         collectionTemplate2.setName("Коллекция жира");
+        collectionTemplate2.setServerType(LineageServerType.LEGACY);
+
 
         CollectionBonus bonus2 = new CollectionBonus();
         bonus2.setEnchant(bonusReducePhysicalCriticalDamageMinusTwentyEnchant);

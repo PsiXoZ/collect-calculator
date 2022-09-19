@@ -2,16 +2,27 @@ package ru.psixoz.lineage2.port.out;
 
 import ru.psixoz.lineage2.model.ref.CollectionType;
 import ru.psixoz.lineage2.model.ref.EnchantType;
+import ru.psixoz.lineage2.model.ref.LineageServerType;
 import ru.psixoz.lineage2.model.user.Character;
 
 import java.util.Collection;
 import java.util.Optional;
 
+import static java.lang.String.format;
+
 public interface CharacterRepository {
 
     Character save(Character character);
 
-    Collection<GetCharacterCollectionDto> getCharacterCollection(Long characterId);
+    Optional<Character> findById(Long id);
+
+    Optional<Character> findByNameIgnoreCaseAndServer(String characterName, String serverCode);
+
+    default Character findByIdOrThrow(Long id) {
+        return findById(id).orElseThrow(() -> new RuntimeException(format("Character with id: %s not found", id)));
+    }
+
+    Collection<GetCharacterCollectionDto> getCollectionsByServerType(String serverType);
 
 
     interface GetCharacterCollectionDto {
@@ -24,6 +35,4 @@ public interface CharacterRepository {
         String getItemName();
         String getItemEnchant();
         EnchantType getItemEnchantType();
-        boolean isCollectionComplete();
-        boolean isItemComplete();
     }}

@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
 import ru.psixoz.lineage2.model.ref.LineageServer;
+import ru.psixoz.lineage2.model.ref.LineageServerType;
 import ru.psixoz.lineage2.model.user.Account;
 import ru.psixoz.lineage2.model.user.Character;
 
@@ -24,8 +25,8 @@ public abstract class AbstractSpringBootTest {
         return entityManager.persist(character);
     }
 
-    protected LineageServer createServer(String code, String name) {
-        LineageServer server = new LineageServer(code, name);
+    protected LineageServer createServer(String code, String name, LineageServerType serverType) {
+        LineageServer server = new LineageServer(code, name, serverType);
         return entityManager.persist(server);
     }
 

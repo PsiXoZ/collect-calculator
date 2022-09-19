@@ -21,7 +21,7 @@ public class CollectionEditorUseCase implements CollectionEditorPort {
 
     @Override
     public CreateCollectionResponse createCollection(CreateCollectionRequest request) {
-        Optional<CollectionTemplate> collectionOp = collectionRepository.findByNameIgnoreCase(request.getName());
+        Optional<CollectionTemplate> collectionOp = collectionRepository.findByNameIgnoreCaseAndServerType(request.getName(), request.getServerType());
 
         if (collectionOp.isPresent()) {
             throw new RuntimeException(format("Collection with name: %s already exist", request.getName()));
@@ -30,6 +30,7 @@ public class CollectionEditorUseCase implements CollectionEditorPort {
         CollectionTemplate template = new CollectionTemplate();
         template.setName(request.getName());
         template.setCollectionType(request.getCollectionType());
+        template.setServerType(request.getServerType());
         bonusService.addCollectionBonus(template, request.getCollectionBonusId());
         collectionItemsService.addCollectionItems(template.getItemsCollection(), request.getItems());
         collectionRepository.save(template);
