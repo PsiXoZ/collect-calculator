@@ -8,6 +8,8 @@ public interface AccountRepository {
 
     Account save(Account account);
 
+    Optional<Account> findByLogin(String login);
+
     Optional<Account> findById(Long accountId);
 
     default Account findByIdOrThrow(Long accountId) {

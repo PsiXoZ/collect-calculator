@@ -28,9 +28,9 @@ public class TestDataInitializer implements ApplicationRunner {
         //Create Character
         LineageServer server = new LineageServer("GrandKain", "Гранд Каин");
         Account account = new Account();
-        account.setFullName("Petrov Roman");
-        account.setLogin("psixoz");
-        account.getCharacters().addCharacter("PaulVanDayk", server);
+        account.setFullName("Test User");
+        account.setLogin("User");
+        account.getCharacters().addCharacter("TestCharacter", server);
         accountRepository.save(account);
 
         //Create enchantType

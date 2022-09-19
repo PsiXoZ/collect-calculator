@@ -5,6 +5,7 @@ import ru.psixoz.lineage2.model.ref.EnchantType;
 import ru.psixoz.lineage2.model.user.Character;
 
 import java.util.Collection;
+import java.util.Optional;
 
 public interface CharacterRepository {
 
