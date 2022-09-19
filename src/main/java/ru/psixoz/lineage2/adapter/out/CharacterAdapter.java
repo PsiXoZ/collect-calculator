@@ -30,7 +30,7 @@ public interface CharacterAdapter extends CharacterRepository, JpaRepository<Cha
             "    JOIN ITEM i ON i.ID = it.ITEM_ID\n" +
             "    JOIN ENCHANT e1 ON e1.CODE = it.ENCHANT_CODE\n" +
             "    JOIN ITEM_TYPE itp ON itp.CODE = it.TYPE_CODE\n" +
-            "WHERE ct.LINEAGE_SERVER_TYPE = :serverType")
+            "WHERE ct.LINEAGE_TYPE = :serverType")
     Collection<GetCharacterCollectionDto> getCollectionsByServerType(String serverType);
 
 

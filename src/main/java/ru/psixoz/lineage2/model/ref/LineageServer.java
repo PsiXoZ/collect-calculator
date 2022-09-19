@@ -13,7 +13,7 @@ import javax.persistence.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class LineageServer extends BaseReference {
 
-    @Column(name = "LINEAGE_SERVER_TYPE")
+    @Column(name = "LINEAGE_TYPE")
     @Enumerated(EnumType.STRING)
     LineageServerType serverType;
 

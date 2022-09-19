@@ -29,7 +29,7 @@ public class CollectionTemplate extends BaseEntity {
     @Setter
     CollectionBonus collectionBonus;
 
-    @Column(name = "LINEAGE_SERVER_TYPE")
+    @Column(name = "LINEAGE_TYPE")
     @Enumerated(EnumType.STRING)
     @Setter
     LineageServerType serverType;

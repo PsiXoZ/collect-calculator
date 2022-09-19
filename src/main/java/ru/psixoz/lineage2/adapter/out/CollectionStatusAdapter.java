@@ -18,7 +18,7 @@ public interface CollectionStatusAdapter extends CollectionStatusRepository, Jpa
             "   JOIN COLLECTION_TEMPLATE ct ON cs.COLLECTION_TEMPLATE_ID = ct.ID\n" +
             "   JOIN ITEM_STATUS its ON its.COLLECTION_STATUS_ID = cs.ID\n" +
             "WHERE cs.CHARACTER_ID = :characterId\n " +
-            "   AND ct.LINEAGE_SERVER_TYPE = :serverType")
+            "   AND ct.LINEAGE_TYPE = :serverType")
     Collection<CollectionStatusShortInfo> getCollectionsStatusByCharacterIdAndServerType(Long characterId, String serverType);
 
 }
