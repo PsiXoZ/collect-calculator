@@ -16,6 +16,8 @@ public interface CharacterRepository {
 
     Optional<Character> findById(Long id);
 
+    Collection<Character> findByAccountId(Long accountId);
+
     Optional<Character> findByNameIgnoreCaseAndServer(String characterName, String serverCode);
 
     default Character findByIdOrThrow(Long id) {
